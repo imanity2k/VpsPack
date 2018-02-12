@@ -1,0 +1,37 @@
+#!/bin/bash
+cd
+if [ $(id -u) != 0 ]
+then
+echo "Execute o script como root"
+exit
+fi
+echo -e "\033[1;30mInstalando...\033[0m"
+mkdir /etc/VpsPackdir 2>/dev/null
+mkdir /etc/VpsPackdir/limite 2>/dev/null
+mkdir /etc/VpsPackdir/contraseña 2>/dev/null
+rm -rf /bin/limite 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/imanity2k/VpsPack/master/limite > /bin/limite
+chmod +x /bin/limite
+rm -rf /bin/criarusuario 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/imanity2k/VpsPack/master/criarusuario > /bin/crearusuario
+chmod +x /bin/criarusuario
+rm -rf /bin/deletarusuario 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/imanity2k/VpsPack/master/deletarusuario > /bin/eliminarusuario
+chmod +x /bin/deletarusuario
+rm -rf /bin/redefinirusuario 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/imanity2k/VpsPack/master/redefinirusuario > /bin/modificarusuario
+chmod +x /bin/redefinirusuario
+rm -rf /bin/vpspack 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/imanity2k/VpsPack/master/vpspack > /bin/vpspack
+chmod +x /bin/vpspack
+rm -rf /bin/speedtest.py 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/imanity2k/VpsPack/master/speedtest.py > /bin/speedtest.py
+chmod +x /bin/speedtest.py
+clear
+echo -e "\033[1;32mInstalacion Finalizada\n\033[1;30mExecute:"
+echo -e "\n\033[1;32mvpspack \033[1;30mMenu de opciones"
+echo -e "\033[1;32mcrearusuario \033[1;30mCrear usuario con fecha limite"
+echo -e "\033[1;32meliminarusuario \033[1;30mBorrar usuario o desconectarlo"
+echo -e "\033[1;32mmodificarusuario \033[1;30mModificar fecha, contraseña, etc, de un usuario"
+echo -e "\033[1;32mlimite \033[1;30mLimite de logins simultaneos\033[0m"
+rm -rf install
